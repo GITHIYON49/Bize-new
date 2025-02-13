@@ -5,7 +5,7 @@ import ServicesOverview from "./servicesOverview/ServicesOverview";
 import Footer from "./footer/Footer";
 import Banner from "./banner/Banner";
 import AboutServicesCard from "./aboutServicesCard/AboutServicesCard";
-import CoreValueCard from "./coreValueCard/CoreValueCard";
+// import CoreValueCard from "./coreValueCard/CoreValueCard";
 import ContactUsCard from "./contactUsCard/ContactUsCard";
 import ContactForm from "./contactForm/ContactForm";
 import RegisterForm from "./registerForm/RegisterForm";
@@ -21,7 +21,7 @@ export {
   Footer,
   Banner,
   AboutServicesCard,
-  CoreValueCard,
+  // CoreValueCard,
   ContactUsCard,
   ContactForm,
   RegisterForm,

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import {
   Banner,
   AboutServicesCard,
-  CoreValueCard,
+  // CoreValueCard,
   OverViewCard,
 } from "../../components";
 import { banner1 } from "../../assets/images";
