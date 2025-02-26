@@ -6,7 +6,6 @@ import {
   Carousel,
 } from "../../components";
 import { overViewData } from "../../data/OverViewCard";
-import Sample from "../../components/sample/Sample";
 
 const Home = () => {
   const data = overViewData[0];
@@ -17,7 +16,6 @@ const Home = () => {
       <Carousel />
       <TitleCard />
       <OverViewCard data={data} />
-      {/* <Sample/> */}
       <OverViewCard data={data1} className={isTrue} />
       <ServicesOverview />
     </>

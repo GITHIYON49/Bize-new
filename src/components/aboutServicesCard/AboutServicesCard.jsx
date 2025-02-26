@@ -9,15 +9,16 @@ const AboutServicesCard = () => {
           {aboutServiceData.map((data, i) => (
             <div
               key={i}
-              className="bg-gray-100 rounded-xs py-10 px-5 md:p-7 md:pt-20 flex flex-col justify-start items-start md:min-h-96"
+              className="bg-white shadow-2xl rounded-lg py-10 px-5 md:p-7 md:pt-20 flex flex-col gap-5 justify-start items-start md:min-h-96"
             >
-              <h3
-                className={`text-xl lg:text-2xl ${data.textColor} font-bold mb-5`}
-              >
+              <span className="p-3 bg-gray-50 rounded-full">
+                <data.icon className="w-8 h-8" />
+              </span>
+              <h3 className={`text-xl lg:text-2xl ${data.textColor} font-bold`}>
                 {data.titleName1}{" "}
                 <span className="block my-0">{data.titleName2}</span>
               </h3>
-              <p className="text-base text-gray-600 leading-5">
+              <p className="text-sm text-gray-600 leading-5">
                 {data.description}
               </p>
             </div>

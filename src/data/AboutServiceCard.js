@@ -1,8 +1,11 @@
+import { Handshake, Lightbulb, HandHelping } from "lucide-react";
+
 export const aboutServiceData = [
   {
     titleName1: "Innovative",
     titleName2: "Engagement",
     textColor: "text-primary",
+    icon: Handshake,
     description: `At BIZ E, we recognize that innovation is the key to staying ahead in today’s fast-paced business world. 
                       We actively engage you with cutting-edge concepts and emerging trends that can be immediately applied to your business, 
                       giving you a competitive edge. 
@@ -15,6 +18,7 @@ export const aboutServiceData = [
     titleName1: "Comprehensive",
     titleName2: "Enhancement",
     textColor: "text-secondary",
+    icon: Lightbulb,
     description: `Our approach goes beyond mere networking. We work closely with you to enhance every facet of your business profile. 
                       From brand visibility and market positioning to operational efficiency, our tailored strategies ensure that your business 
                       not only meets but exceeds industry standards. 
@@ -26,6 +30,7 @@ export const aboutServiceData = [
     titleName1: "Empowerment",
     titleName2: "for Success",
     textColor: "text-teal-400",
+    icon: HandHelping,
     description: `We believe that true success comes from empowering businesses with the right tools, knowledge, and networks. 
                       BIZ E provides a structured platform where you can gain valuable industry insights, forge meaningful relationships, 
                       and develop strategies that help you achieve long-term success.`,

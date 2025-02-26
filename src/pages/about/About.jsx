@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import {
-  Banner,
   AboutServicesCard,
-  // CoreValueCard,
+  CoreValueCard,
   OverViewCard,
 } from "../../components";
 import { banner1 } from "../../assets/images";
 import { overViewData } from "../../data/OverViewCard";
-import Sample from "../../components/sample/Sample";
+import BannerTwo from "../../components/bannerTwo/BannerTwo";
 
 const bannerContent = {
   heading: "What is BIZ E",
@@ -22,11 +21,10 @@ const About = () => {
   const [isTrue, setIsTrue] = useState(true);
   return (
     <>
-      <Banner data={bannerContent} />
-      <AboutServicesCard />
+      <BannerTwo data={bannerContent} />
+      <CoreValueCard />
       <OverViewCard data={data} className={isTrue} />
-      {/* <CoreValueCard /> */}
-      <Sample/>
+      <AboutServicesCard />
       <OverViewCard data={data1} className={isTrue} />
     </>
   );

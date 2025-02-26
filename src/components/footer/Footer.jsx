@@ -48,7 +48,9 @@ const Footer = () => {
                   </ul>
                 </div>
                 <div className="flex flex-col items-center lg:items-start justify-center gap-5 lg:gap-6 text-base">
-                  <h6 className="uppercase text-[#E0E0E0] font-bold">company</h6>
+                  <h6 className="uppercase text-[#E0E0E0] font-bold">
+                    company
+                  </h6>
                   <ul className="flex flex-col text-center md:text-start gap-1">
                     <li>About</li>
                     <li>Register</li>

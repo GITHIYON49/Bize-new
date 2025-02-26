@@ -1,9 +1,10 @@
 import React from "react";
 import { Link, useNavigate } from "react-router";
-import { CircleUserRound } from 'lucide-react';
+import { CircleUserRound } from "lucide-react";
 import DesktopMenu from "./DesktopMenu";
 import MobileMenu from "./MobileMenu";
 import { menus } from "../../data/MenuBar";
+import { logo } from "../../assets/images";
 
 const Navbar = () => {
   const navigation = useNavigate();
@@ -16,18 +17,18 @@ const Navbar = () => {
 
   return (
     <>
-      <header className="w-full h-28 md:h-32 lg:h-36 shadow-lg bg-light z-[999]">
+      <header className="w-full h-28 md:h-32 lg:h-36 bg-white z-[999]">
         <nav className="w-[90%] md:w-[80%] h-full mx-auto flex justify-between items-center py-3">
           <div className="w-28 md:w-32 lg:w-36 h-auto">
             <Link to="/" className="outline-none">
               <img
-                src="https://biz-excellence.net/wp-content/uploads/2024/06/Add-a-subheading.png"
+                src={logo}
                 alt="logo"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover bg-transparent"
               />
             </Link>
           </div>
-          <ul className="flex gap-8 capitalize">
+          <ul className="flex gap-8 capitalize z-[999]">
             {filteredMenus?.map((menu, i) => {
               return <DesktopMenu key={i} menu={menu} />;
             })}
@@ -39,7 +40,7 @@ const Navbar = () => {
                 handleClick("/login");
               }}
             >
-              <CircleUserRound className="h-8 w-8"/>
+              <CircleUserRound className="h-8 w-8" />
               <span className="text-lg font-semibold">login</span>
             </button>
             <button

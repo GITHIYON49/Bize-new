@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Routes } from "react-router";
-import { Navbar, Footer, ScrollToTop } from "./components";
+import { Navbar, Footer, ScrollToTop,LinkWhatsapp } from "./components";
 import {
   Home,
   About,
@@ -11,13 +11,11 @@ import {
   Enhancement,
   Engagement,
 } from "./pages";
-import SamplePage from "./pages/samplePage/SamplePage";
 function App() {
   return (
     <>
       <ScrollToTop />
       <Navbar />
-      {/* <SamplePage/> */}
       <Routes>
         <Route path={"/"} element={<Home />} />
         <Route path={"/about"} element={<About />} />
@@ -28,6 +26,7 @@ function App() {
         <Route path={"/registration"} element={<Registration />} />
         <Route path={"/login"} element={<Login />} />
       </Routes>
+      <LinkWhatsapp/>
       <Footer />
     </>
   );

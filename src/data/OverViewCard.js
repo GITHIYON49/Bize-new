@@ -10,7 +10,7 @@ export const overViewData = [
       one:image1,
       two:image2,
       three:image3
-    }
+    },
   },
   {
     heading: "Why Join BizE?",
@@ -23,7 +23,7 @@ export const overViewData = [
       one:image4,
       two:image5,
       three:image6
-    }
+    },
   },
   {
     heading: "Our Mission",
@@ -33,7 +33,7 @@ export const overViewData = [
         one:image7,
         two:image8,
         three:image9
-      }
+      },
   },
   {
     heading: "Take The Next Step",
@@ -46,6 +46,6 @@ export const overViewData = [
       one:image10,
       two:image11,
       three:image12
-    }
+    },
   },
 ];

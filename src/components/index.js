@@ -5,13 +5,15 @@ import ServicesOverview from "./servicesOverview/ServicesOverview";
 import Footer from "./footer/Footer";
 import Banner from "./banner/Banner";
 import AboutServicesCard from "./aboutServicesCard/AboutServicesCard";
-// import CoreValueCard from "./coreValueCard/CoreValueCard";
+import CoreValueCard from "./coreValueCard/CoreValueCard";
 import ContactUsCard from "./contactUsCard/ContactUsCard";
 import ContactForm from "./contactForm/ContactForm";
 import RegisterForm from "./registerForm/RegisterForm";
 import LoginForm from "./loginForm/LoginForm";
 import Carousel from "./carousel/Carousel";
 import ScrollToTop from "./scrollToTop/ScrollToTop";
+import LinkWhatsapp from "./linkWhatsapp/LinkWhatsapp";
+import BannerTwo from "./bannerTwo/BannerTwo";
 
 export {
   Navbar,
@@ -20,12 +22,14 @@ export {
   ServicesOverview,
   Footer,
   Banner,
+  BannerTwo,
   AboutServicesCard,
-  // CoreValueCard,
+  CoreValueCard,
   ContactUsCard,
   ContactForm,
   RegisterForm,
   LoginForm,
   Carousel,
-  ScrollToTop
+  ScrollToTop,
+  LinkWhatsapp
 };

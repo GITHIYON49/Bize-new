@@ -3,6 +3,7 @@
 
 body {
   font-family: "Inter", sans-serif;
+  background-color: oklch(0.985 0.002 247.839);
 }
 
 h1,
@@ -12,17 +13,15 @@ h4,
 h5,
 h6 {
   font-family: sans-serif;
-  /* font-family: "Montserrat", sans-serif; */
+  font-family: "Montserrat", sans-serif;
 }
 
 @theme {
-  --color-primary:#FF206E;
+  --color-primary: #ff206e;
   --color-primaryLight: #ff4f5a;
-  --color-secondary:#12CAD6;
-  --color-secondaryLight:#17a2b8;
-  --color-tertiary:#064663;
-  --color-tertiaryLight:#008b8b;  
-  --color-light:#F8F9FA;
+  --color-secondary: #12cad6;
+  --color-secondaryLight: #17a2b8;
+  --color-tertiary: #064663;
+  --color-tertiaryLight: #008b8b;
+  --color-light: #f8f9fa;
 }
-
-
