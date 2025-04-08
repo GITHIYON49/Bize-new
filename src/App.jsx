@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, Routes } from "react-router";
+import { Toaster } from "react-hot-toast";
 import { Navbar, Footer, ScrollToTop,LinkWhatsapp } from "./components";
 import {
   Home,
@@ -27,6 +28,7 @@ function App() {
         <Route path={"/login"} element={<Login />} />
       </Routes>
       <LinkWhatsapp/>
+      <Toaster/>
       <Footer />
     </>
   );

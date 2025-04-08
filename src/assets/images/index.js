@@ -30,6 +30,7 @@ import image12 from "./new/image_twelve.webp";
 import bannerOne from "./banner_one.jpg";
 import whatsappImage from "./whatsapp.svg";
 import contactImage from "./contact.webp"
+import mailImage from "./mail.webp"
 export {
   logo,
   banner1,
@@ -63,4 +64,5 @@ export {
   resourceFour,
   resourceFive,
   whatsappImage,
+  mailImage
 };

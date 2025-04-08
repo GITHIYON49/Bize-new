@@ -2,29 +2,16 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import toast from "react-hot-toast";
+import { Mail } from 'lucide-react';
 
 const ContactForm = () => {
   const schema = z.object({
-    firstname: z
-      .string()
-      .nonempty("Please enter your first name.")
-      .min(1, "Your name must be at least five characters long."),
-    lastname: z
-      .string()
-      .nonempty("Please enter your last name.")
-      .min(5, "Your name must be at least five characters long."),
-    email: z
-      .string()
-      .nonempty("Please enter your email address.")
-      .email("Please enter a valid email address."),
-    phonenumber: z
-      .string()
-      .nonempty("Please enter your phone number.")
-      .min(10, "Your phone number must be at least ten characters long."),
-    message: z
-      .string()
-      .nonempty("Please enter your message.")
-      .min(20, "Your message must be at least twenty characters long."),
+    firstname: z.string().nonempty("Please enter your first name."),
+    lastname: z.string().nonempty("Please enter your last name."),
+    email: z.string().nonempty("Please enter your email address.").email(),
+    phonenumber: z.string().nonempty("Please enter your phone number."),
+    message: z.string().nonempty("Please enter your message."),
   });
 
   const {
@@ -35,10 +22,59 @@ const ContactForm = () => {
   } = useForm({
     resolver: zodResolver(schema),
   });
-  const onsubmit = async (data) => {
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    console.log(data);
-    reset();
+
+  const onSubmit = async (data) => {
+    try {
+      const response = await fetch("http://localhost:4000/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        // toast.success("mail send successfully")
+        toast.custom((t) => (
+          <div
+            className={`${
+              t.visible ? 'animate-enter' : 'animate-leave'
+            } max-w-md w-full bg-white shadow-lg rounded-lg pointer-events-auto flex ring-1 ring-black ring-opacity-5`}
+          >
+            <div className="flex-1 w-0 p-4">
+              <div className="flex items-start">
+                <div className="flex-shrink-0 pt-0.5">
+                 <Mail className="w-10 h-10 text-red-600"/>
+                </div>
+                <div className="ml-3 flex-1">
+                  <p className="text-sm font-medium text-gray-900">
+                    {data.firstname} {data.lastname}
+                  </p>
+                  <p className="mt-1 text-sm text-gray-500">
+                     mail send successfully
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="flex border-l border-gray-200">
+              <button
+                onClick={() => toast.dismiss(t.id)}
+                className="w-full border border-transparent rounded-none rounded-r-lg p-4 flex items-center justify-center text-sm font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        ))
+        reset();
+      } else {
+        alert("Failed to send email.");
+      }
+    } catch (error) {
+      console.error("Error sending email:", error);
+      alert("Something went wrong.");
+    }
   };
   return (
     <>
@@ -47,7 +83,7 @@ const ContactForm = () => {
         <form
           action=""
           className="w-11/12 sm:w-4/5 md:w-3/5 flex flex-col items-center justify-center gap-7 p-5 md:p-7  shadow-2xl"
-          onSubmit={handleSubmit(onsubmit)}
+          onSubmit={handleSubmit(onSubmit)}
         >
           <div className="w-full flex flex-col lg:flex-row items-start justify-center gap-3">
             <div className="w-full lg:w-1/2 flex flex-col items-start justify-center gap-1">
@@ -160,67 +196,3 @@ const ContactForm = () => {
 
 export default ContactForm;
 
-{
-  /* <form
-          action=""
-          className="w-11/12 md:w-[700px] flex flex-col items-center justify-center gap-7 px-10 py-20  shadow-2xl"
-          onSubmit={handleSubmit(onsubmit)}
-        >
-          <div className="w-11/12 md:w-4/5 flex flex-col items-start justify-center">
-            <label
-              htmlFor="fullName"
-              className="capitalize font-bold text-base"
-            >
-              full name<span className="text-red-500">*</span>
-            </label>
-            <input
-              type="text"
-              id="fullName"
-              className="w-full border-2 border-gray-300 p-3 rounded-md outline-none"
-              placeholder="Enter Your Full Name"
-              {...register("name")}
-            />
-            {errors.name && (
-              <div className="text-red-500 py-1 text-base">{errors.name.message}</div>
-            )}
-          </div>
-          <div className="w-11/12 md:w-4/5 flex flex-col items-start justify-center">
-            <label htmlFor="email" className="capitalize font-bold text-base">
-              Email<span className="text-red-500">*</span>
-            </label>
-            <input
-              type="text"
-              id="email"
-              className="w-full border-2 border-gray-300 p-3 rounded-md outline-none"
-              placeholder="Enter Your Email"
-              {...register("email")}
-            />
-            {errors.email && (
-              <div className="text-red-500">{errors.email.message}</div>
-            )}
-          </div>
-          <div className="w-11/12 md:w-4/5 flex flex-col items-start justify-center">
-            <label htmlFor="message" className="capitalize font-bold text-base">
-              message <span className="text-red-500">*</span>
-            </label>
-            <textarea
-              name="message"
-              id="message"
-              className="w-full border-2 border-gray-300 p-3 rounded-md outline-none min-h-40"
-              {...register("message")}
-            ></textarea>
-            {errors.message && (
-              <div className="text-red-500">{errors.message.message}</div>
-            )}
-          </div>
-          <div className="w-11/12 md:w-4/5 flex items-center justify-start">
-            <button
-              disabled={isSubmitting}
-              type="submit"
-              className="text-base capitalize w-full sm:w-fit px-5 py-3 rounded-lg outline-none cursor-pointer transform transition-all duration-100 ease-in-out bg-secondary hover:bg-primaryLight text-white"
-            >
-              {isSubmitting ? "...Loading" : "send message"}
-            </button>
-          </div>
-        </form> */
-}
